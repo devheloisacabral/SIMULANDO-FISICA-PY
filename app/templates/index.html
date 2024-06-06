@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/style-index.css' %}">
+     <script src="{% static 'scripts/menu-script.js' %}"></script>
+</head>
+<body>
+
+<div class="navbar">
+    <h1></h1>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</div>
+
+<div class="menu" id="menu">
+    <br><br>
+    <a style="color: white; cursor: pointer" onclick="window.open('{% url 'calculator' %}', '_blank')">Calculadora</a>
+    <a href="#">Anotações</a>
+</div>
+
+<div class="background-animation">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="shape shape4"></div>
+    <div class="shape shape5"></div>
+    <div class="neon-line neon-line1"></div>
+    <div class="neon-line neon-line2"></div>
+    <div class="neon-line neon-line3"></div>
+</div>
+<div class="container">
+    {% for card in cards %}
+    <div class="card">
+        <br><br>
+        <p>{{card.nome}}</p>
+        <img class="img-card" src="{% static card.image %}" alt=""> <br>
+       <button class="button-submit" type="button" onclick="window.open('{% url card.complemento %}', '_blank')">Simule um {{card.nome}}</button>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

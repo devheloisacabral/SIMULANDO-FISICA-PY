@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador: Horizontal</title>
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/style-simulator-page.css' %}">
+</head>
+
+<body>
+    <div class="background">
+        <div class="stars"></div>
+    </div>
+    <div>
+        <h1>SIMULE SEU LANÇAMENTO HORIZONTAL</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">INICIAR</button>
+        </form>
+        <div class="back">
+           <a style="color: white; cursor: pointer" onclick="window.location.href='{% url 'index' %}'">Voltar</a>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Incrível</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/style-coders.css' %}">
+    <script src="{% static 'scripts/coders.js' %}"></script>
+</head>
+<body>
+    <header class="header">
+        <a class="logo">
+
+        </a>
+        <nav class="navbar">
+            <a href="#home">Conheça os desenvolvedores</a>
+            <a href="#home">Conheça o projeto</a>
+            <a href="#home">Simule</a>
+        </nav>
+    </header>
+    <section class="home" id="home">
+        <div class="content">
+            <h3 style="margin-left: 350px" id="title">SIMULANDO FÍSICA COM PYTHON</h3>
+        </div>
+    </section>
+    <section class="products" id="products"><br>
+        <h1 class="heading"><span>OS DESENVOLVEDORES</span> </h1>
+       <div class="box-container">
+            {% for dev in devs %}
+            <div class="box">
+                <img style="width: 100%;" class="img-card" src="{% static dev.image %}" alt="">
+                <div class="content">
+                    <h3>{{ dev.nome }}</h3>
+                    <div class="price">{{dev.descricao}}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    </body>
+</html>
