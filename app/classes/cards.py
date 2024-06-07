@@ -7,8 +7,8 @@ class Card():
         self.complemento = complemento
 
 
-card3 = Card(3, 'Lançamento Vertical', 'teste3', 'img/teste.png', 'lh')
-card4 = Card(4, 'Lançamento Oblíquo', 'teste4', 'img/teste.png', 'lo')
+card3 = Card(3, 'Lançamento Vertical', 'teste3', 'img/lv.png', 'lh')
+card4 = Card(4, 'Lançamento Oblíquo', 'teste4', 'img/lo.png', 'lo')
 
 
 cards_list = (card3, card4)
