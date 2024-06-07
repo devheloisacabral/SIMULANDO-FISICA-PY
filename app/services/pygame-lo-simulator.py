@@ -3,7 +3,7 @@ import pygame
 
 # pygame setup
 pygame.init()
-largura, altura = 1900, 1300
+largura, altura = 1800, 1100
 win = pygame.display.set_mode((largura, altura))
 font = pygame.font.SysFont(None, 36)
 block_size = 50
@@ -40,7 +40,8 @@ class Bola(object):
 def carregar_informacoes():
     text_surface1 = font.render(f"Velocidade: {power}m/s", True, (255, 255, 255))
     text_surface2 = font.render(f"Angulo: {math.degrees(angle)}º", True, (255, 255, 255))
-    text_surface4 = font.render(f"Distancia: {bola.x-100}", True, (255, 255, 255))
+
+    text_surface4 = font.render(f"Distancia: {(bola.x-100)/2}", True, (255, 255, 255))
     win.blit(text_surface1, (1000, 10))
     win.blit(text_surface2, (1000, 50))
     win.blit(text_surface4, (1000, 130))
@@ -50,11 +51,11 @@ def desenhar_grade():
     numeros_verticais = []
     numeros_horizontais = []
     for i in range(100, 1800, 100):
-        numeros_horizontais.append((font.render(str(i-100), True, (255, 255, 255)), (i, 1050)))
+        numeros_horizontais.append((font.render(str((i-100)/2), True, (255, 255, 255)), (i, 1050)))
     for i in numeros_horizontais:
         win.blit(i[0], i[1])
     for i in range(50, 1100, 100):
-        numeros_verticais.append((font.render(str((i-1050)*-1), True, (255, 255, 255)), (100, i)))
+        numeros_verticais.append((font.render(str(((i-1050)*-1)/2), True, (255, 255, 255)), (100, i)))
     for i in numeros_verticais:
         win.blit(i[0], i[1])
     pygame.draw.line(win, (255, 255, 255), (100, 1050), (100, 0), 2)
@@ -151,10 +152,16 @@ while running:
                 if event.key == pygame.K_RETURN:
                     if active_input == "angle":
                         print("Ângulo digitado:", angle_input)
-                        angle = math.radians(float(angle_input))
+                        try:
+                            angle = math.radians(float(angle_input))
+                        except ValueError:
+                            print("Digite um número válido")
                     elif active_input == "force":
                         print("Força digitada:", force_input)
-                        power = float(force_input)
+                        try:
+                            power = float(force_input)
+                        except ValueError:
+                            print("Digite um número válido")
                     angle_input = ""
                     force_input = ""
                 elif event.key == pygame.K_BACKSPACE:
