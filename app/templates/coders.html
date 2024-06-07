@@ -3,40 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Incrível</title>
+    <title>SIMULANDO FÍSICA COM PYTHON</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles/style-coders.css' %}">
     <script src="{% static 'scripts/coders.js' %}"></script>
 </head>
 <body>
     <header class="header">
-        <a class="logo">
-
-        </a>
+        <a class="logo"></a>
         <nav class="navbar">
-            <a href="#home">Conheça os desenvolvedores</a>
-            <a href="#home">Conheça o projeto</a>
-            <a href="#home">Simule</a>
+            <a href="#devs">Conheça os desenvolvedores</a>
+            <a href="#project">Conheça o projeto</a>
+            <a href="#simule">Simule</a>
         </nav>
     </header>
     <section class="home" id="home">
         <div class="content">
-            <h3 style="margin-left: 350px" id="title">SIMULANDO FÍSICA COM PYTHON</h3>
+            <h3 style="margin-left: 350px" id="title">SIMULANDO FÍSICA COM PYTHON</h3><br><br><br>
+            <div style="text-align: center; margin-top: 20px; margin-left: 430px">
+                <img src="{% static 'img/logo.png' %}" alt="univassouras logo">
+            </div>
         </div>
     </section>
-    <section class="products" id="products"><br>
+    <section class="products" id="devs"><br>
         <h1 class="heading"><span>OS DESENVOLVEDORES</span> </h1>
-       <div class="box-container">
+        <div class="box-container">
             {% for dev in devs %}
             <div class="box">
                 <img style="width: 100%;" class="img-card" src="{% static dev.image %}" alt="">
                 <div class="content">
                     <h3>{{ dev.nome }}</h3>
-                    <div class="price">{{dev.descricao}}</div>
+                    <div style="font-size: 20px" class="price">{{ dev.descricao }}</div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </section>
+    <section class="products" id="project" style="background-color: black"><br>
+        <h1 class="heading"><span>O PROJETO</span> </h1>
+        <div class="box-container">
+            <article class="image-article">
+                <img style="border-radius: 20px" src="{% static 'img/univassouras.png' %}" alt="univassouras logo">
+            </article>
+            <article class="text-article">
+                <h2 style="color: white; text-align: justify; margin-top: 48px">
+                    As metodologias ativas são utilizadas para simular situações reais por meio de estratégias de ensino que incentivam os alunos na aprendizagem de forma participativa e autônoma.
+                    <br><br>
+                    Alunos do terceiro período de todas as Engenharias da Univassouras participam de metodologias ativas na disciplina de Física para Engenharia I, ministrada pelo professor Adauri Silveira Rodrigues Júnior.
+                    <br>A atividade prática consiste na utilização de um lançador de projéteis para calcular o alcance do mesmo dentro de um lançamento oblíquo.
+                    <br><br>Os alunos de Engenharia de Software ficam responsáveis pela criação do software para calcular o lançamento, enquanto os demais participantes das Engenharias Civil, Elétrica e Química se encarregaram de elaborar um relatório com todas as informações da atividade executada.
+                    <br><br> Este é o software de simulação do grupo composto por: Heloisa Cabral, Pedro Coelho e Gabriel Fernandes.
+                </h2>
+            </article>
+        </div>
+    </section>
+    <section class="products" id="simule"><br>
+        <h1 class="heading"><span>O PROJETO - AS TECNOLOGIAS</span> </h1>
+        <div class="box-container">
+            {% for tecnologia in tecnologias  %}
+            <div class="box" style="height: 100%">
+                <div style="height: 85%">
+                    <img style="width: 100%;" class="img-card" src="{% static tecnologia.imagem %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>{{ tecnologia.nome }}</h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div style="height: 70px"></div>
+        <button onclick="window.open('{% url 'index' %}')" style="width: 400px; margin-left: 37%; font-weight: 600;background-color: darkred; color: white; border-radius: 20px; font-size: 25px; padding: 10px; cursor: pointer">SIMULE UM LANÇAMENTOS</button>
+    </section>
     </body>
+    <footer style="background-color: darkred; height: 60px">a</footer>
 </html>
