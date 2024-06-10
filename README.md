@@ -12,10 +12,8 @@ Este repositório contém um simulador de lançamento oblíquo e vertical desenv
 
 - Docker
 - Git
-- Python
-- Pygame
 
-O arquivo `requirements.txt` está presente no projeto, não se preocupe com os requisitos. Quando executarem `docker-compose up --build`, o container está configurado para instalar automaticamente as dependências necessárias. Os usuários só precisam se preocupar com o arquivo requirements.txt caso desejem adicionar novas dependências. Nesse caso, devem inserir as novas dependências no arquivo requirements.txt e executar `docker-compose up --build` para reconstruir o container com as novas dependências. 📦
+O arquivo `requirements.txt` está presente no projeto, não se preocupe com os outros requisitos. Quando executarem `docker-compose up --build`, o container está configurado para instalar automaticamente as dependências necessárias. Os usuários só precisam alterar o arquivo requirements.txt caso desejem adicionar novas dependências. Nesse caso, devem inserir as novas dependências no arquivo e executar `docker-compose up --build` para reconstruir o container com as novas dependências. 📦
 
 ## Instalação e Execução
 
